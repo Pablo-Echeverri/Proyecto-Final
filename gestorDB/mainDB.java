@@ -79,6 +79,16 @@ public class mainDB {
 		TiendaDb.insertarDatosIngredientes(11, "Queso", "Alimento de maduración cuajada");
 		TiendaDb.insertarDatosIngredientes(12, "Tomate", "Fruta solanum lycopersicum");
 		TiendaDb.insertarDatosIngredientes(13, "Levadura", "Fungi  o fermento de los hongos");
+		
+// Borrado de los datos en las tablas
+		
+/**
+ *  Un único ejemplo sobre el borrado, cambiaría el nombre de la tabla y el número de codigo dependiendo del dato 
+ *  a borrar
+ */
+		
+		TiendaDb.borrarDatos("Cliente", 1);
+
 	
 	}
 
