@@ -332,4 +332,27 @@ public class sqliteMetodos {
 	
 	}
 	
+	
+// Metodo de borrado de datos
+	
+	public void borrarDatos(String nombreTabla, int ID) throws SQLException{
+		this.nombreTabla = nombreTabla;
+		this.codigoP = codigoP;
+		this.codigoIdentP = codigoIdentP;
+		this.codigoI = codigoI;
+		
+		try{
+			crearDataBase();
+			stmt=conn.createStatement();
+			String sql = "DELETE FROM "+nombreTabla+" WHERE ID"+codigoP, codigoIdentP, codigoI;
+			stmt.executeUpdate(sql);
+			
+		}catch(Exception e){
+			System.out.println("Error en el borrado de datos");
+		}
+		
+		stmt.close();
+		conn.close();
+	}
+	
 }
