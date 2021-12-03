@@ -2,8 +2,11 @@ package gestorDB;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+
+import javax.naming.spi.DirStateFactory.Result;
 
 /** Mediante esta clase se implementan los métodos para la creación de base de datos, creación de tablas e inserción de datos
  * @author Pablo Echeverría
@@ -36,6 +39,8 @@ public class sqliteMetodos {
 	String nombreI;
 	String descI;
 	int codigoI;
+	private int ID;
+	private String variable;
 	
 // Metodos de creación de la Base de Datos
 
@@ -333,6 +338,32 @@ public class sqliteMetodos {
 	}
 	
 	
+// Metodo de consulta de datos
+	
+	public void consultaDatos(String nombreTabla) throws SQLException{
+		crearDataBase();
+		stmt=conn.createStatement();
+		String consultaSQL="SELECT * FROM "+nombreTabla+";";
+		
+		try{
+			ResultSet rs = stmt.executeQuery(consultaSQL);
+			while(rs.next()){
+				int ID=rs.getInt("ID");
+				String Nombre=rs.getString("Nombre");
+				System.out.println("ID: "+ID+" Nombre: "+nombreTabla);
+				
+			}
+			rs.close();
+			stmt.close();
+			conn.close();
+			
+		}catch(Exception e){
+			System.out.println("Fallo en la consulta de datos");
+		}
+		
+	}
+	
+	
 // Metodo de borrado de datos
 	
 	public void borrarDatos(String nombreTabla, int ID) throws SQLException{
@@ -346,6 +377,7 @@ public class sqliteMetodos {
 			stmt=conn.createStatement();
 			String sql = "DELETE FROM "+nombreTabla+" WHERE ID"+codigoP, codigoIdentP, codigoI;
 			stmt.executeUpdate(sql);
+			System.out.println("Dato borrado correctamente");
 			
 		}catch(Exception e){
 			System.out.println("Error en el borrado de datos");
@@ -355,4 +387,27 @@ public class sqliteMetodos {
 		conn.close();
 	}
 	
+	
+// Metodo de actualización de los datos
+	
+	public void actualizarDatos(String nombreTabla, int ID, String variable) throws SQLException{
+		this.nombreTabla=nombreTabla;
+		this.ID=ID;
+		this.variable= variable;
+		crearDataBase();
+		stmt=conn.createStatement();
+		String actualizarSQL="UPDATE "+nombreTabla+" SET variable='"+variable+"' WHERE ID="+ID; 
+		try{
+			stmt.executeUpdate(actualizarSQL);
+			conn.commit();
+			
+		}catch(Exception e){
+			System.out.println("Error en la actualización de datos");
+		}
+		
+		stmt.close();
+		conn.close();
+	
+	} 
+
 }
