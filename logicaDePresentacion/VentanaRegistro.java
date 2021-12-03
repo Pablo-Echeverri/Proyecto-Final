@@ -6,8 +6,12 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import logicaDeDatos.Cliente;
+
 import javax.swing.JTextField;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -15,28 +19,12 @@ import java.awt.event.ActionEvent;
 public class VentanaRegistro extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
-	private JTextField textField_5;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					VentanaRegistro frame = new VentanaRegistro();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	private JTextField nombreRegistro;
+	private JTextField apellidoRegistro;
+	private JTextField edadRegistro;
+	private JTextField numeroRegistro;
+	private JTextField userRegistro;
+	private JTextField passwordRegistro;
 
 	/**
 	 * Create the frame.
@@ -49,25 +37,25 @@ public class VentanaRegistro extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		textField = new JTextField();
-		textField.setBounds(28, 69, 230, 26);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		nombreRegistro = new JTextField();
+		nombreRegistro.setBounds(28, 69, 230, 26);
+		contentPane.add(nombreRegistro);
+		nombreRegistro.setColumns(10);
 		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(28, 135, 230, 26);
-		contentPane.add(textField_1);
+		apellidoRegistro = new JTextField();
+		apellidoRegistro.setColumns(10);
+		apellidoRegistro.setBounds(28, 135, 230, 26);
+		contentPane.add(apellidoRegistro);
 		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(28, 199, 230, 26);
-		contentPane.add(textField_2);
+		edadRegistro = new JTextField();
+		edadRegistro.setColumns(10);
+		edadRegistro.setBounds(28, 199, 230, 26);
+		contentPane.add(edadRegistro);
 		
-		textField_3 = new JTextField();
-		textField_3.setColumns(10);
-		textField_3.setBounds(28, 266, 230, 26);
-		contentPane.add(textField_3);
+		numeroRegistro = new JTextField();
+		numeroRegistro.setColumns(10);
+		numeroRegistro.setBounds(28, 266, 230, 26);
+		contentPane.add(numeroRegistro);
 		
 		JLabel lblIndiqueSuNombre = new JLabel("Indique su NOMBRE:");
 		lblIndiqueSuNombre.setBounds(28, 43, 184, 20);
@@ -89,15 +77,15 @@ public class VentanaRegistro extends JFrame {
 		lblIndiqueSuNombre_2.setBounds(28, 321, 324, 20);
 		contentPane.add(lblIndiqueSuNombre_2);
 		
-		textField_4 = new JTextField();
-		textField_4.setColumns(10);
-		textField_4.setBounds(28, 346, 230, 26);
-		contentPane.add(textField_4);
+		userRegistro = new JTextField();
+		userRegistro.setColumns(10);
+		userRegistro.setBounds(28, 346, 230, 26);
+		contentPane.add(userRegistro);
 		
-		textField_5 = new JTextField();
-		textField_5.setColumns(10);
-		textField_5.setBounds(28, 406, 230, 26);
-		contentPane.add(textField_5);
+		passwordRegistro = new JTextField();
+		passwordRegistro.setColumns(10);
+		passwordRegistro.setBounds(28, 406, 230, 26);
+		contentPane.add(passwordRegistro);
 		
 		JLabel lblIndiqueSuNombre_2_1 = new JLabel("Indique su CONTRASE\u00D1A:");
 		lblIndiqueSuNombre_2_1.setBounds(28, 380, 324, 20);
@@ -107,13 +95,26 @@ public class VentanaRegistro extends JFrame {
 		btnTerminarRegistro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				VentanaDeInicio vT = new VentanaDeInicio();
-				vT.setVisible(true);
-				VentanaRegistro.this.setVisible(false);	
+//				Cliente cx = new Cliente(nombreRegistro, apellidoRegistro, edadRegistro, numeroRegistro, 20, userRegistro, passwordRegistro, 0, false);
+				
+				VentanaDeInicio vI = new VentanaDeInicio();
+				vI.setVisible(true);
+				VentanaRegistro.this.setVisible(false);
 			}
 		});
-		btnTerminarRegistro.setBounds(66, 448, 176, 29);
+		btnTerminarRegistro.setBounds(28, 448, 176, 29);
 		contentPane.add(btnTerminarRegistro);
+		
+		JButton btnVolver = new JButton("Volver");
+		btnVolver.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				VentanaDeInicio vI = new VentanaDeInicio();
+				vI.setVisible(true);
+				VentanaRegistro.this.setVisible(false);
+				JOptionPane.showMessageDialog(VentanaRegistro.this, "No se ha realizado nigún registro.");
+			}
+		});
+		btnVolver.setBounds(222, 448, 88, 29);
+		contentPane.add(btnVolver);
 	}
-
 }
