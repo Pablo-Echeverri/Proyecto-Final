@@ -80,6 +80,7 @@ public class mainDB {
 		TiendaDb.insertarDatosIngredientes(12, "Tomate", "Fruta solanum lycopersicum");
 		TiendaDb.insertarDatosIngredientes(13, "Levadura", "Fungi  o fermento de los hongos");
 		
+		
 // Borrado de los datos en las tablas
 		
 /**
@@ -88,8 +89,25 @@ public class mainDB {
  */
 		
 		TiendaDb.borrarDatos("Cliente", 1);
+		
 
-	
+// Consulta de datos
+		
+/**
+ * Un único ejemplo sobre la consulta de un dato de las tablas
+ */
+		
+		TiendaDb.consultaDatos("Cliente");
+		
+
+// Actualización de los datos en las tablas
+
+/**
+ * Un único ejemplo sobre la actualización
+ */
+		
+		TiendaDb.actualizarDatos("Ingredientes", 12, "nombreI"+"Jitomate");
+
 	}
 
 }
