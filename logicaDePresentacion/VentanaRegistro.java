@@ -96,7 +96,7 @@ public class VentanaRegistro extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				
 //				Cliente cx = new Cliente(nombreRegistro, apellidoRegistro, edadRegistro, numeroRegistro, 20, userRegistro, passwordRegistro, 0, false);
-				
+//				TiendaDb.insertarDatosCliente(cx);
 				VentanaDeInicio vI = new VentanaDeInicio();
 				vI.setVisible(true);
 				VentanaRegistro.this.setVisible(false);
