@@ -30,32 +30,24 @@ public class VentanaDeInicio extends JFrame {
 	private JButton btnRegistrarse;
 	private JButton btnSalir;
 	
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					VentanaDeInicio frame = new VentanaDeInicio();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the frame.
 	 */
+	
 	public VentanaDeInicio() {
 		
-		Cliente cx = new Cliente("Javier", "Magallón", 43, 659235735, 1, "JavierMag", 12345692, 150, false);
-//		Cliente c? = new Cliente(nombreP, apellidoP, edadP, numContacto, codigoIdentP, usuarioC, contraseniaC, saldo, esVIP)
-		
-		Empleado ex = new Empleado("Gabriel", "Carro", 48, 259642492, 2, "GabrielCar", 601109, 1);
-//		Empleado e? = new Empleado(nombreP, apellidoP, edadP, numContacto, codigoIdentP, usuarioE, contraseniaE, rangoE)
+		Cliente c1 = new Cliente("Javier", "Magallón", 43, 659235735, 1, "JavierMag", 12345692, 150, false);
+		Cliente c2 = new Cliente("Begoña", "Irizar", 21, 846274958, 2, "BegoñaIri", 73823, 150, true);
+		Cliente c3 = new Cliente("Maialen", "Jimenez", 56, 917366421, 3, "MaialenJim", 111111111, 100, true);
+		Cliente c4 = new Cliente("David", "Magallón", 25, 904728473, 4, "DavidMag", 828391, 240, false);
+		Cliente c5 = new Cliente("Pablo", "Díez", 18, 999183741, 5, "PabloDiz", 982020, 75, true);
+		Cliente c6 = new Cliente("Iñaki", "Santacana", 15, 123836284, 6, "IñakiSant", 949237, 40, false);
+		Cliente c7 = new Cliente("Cristina", "Ocina", 16, 248271522, 7, "CristinaOc", 1123, 300, false);
+		Cliente c8 = new Cliente("Nora", "Sanchez", 34, 892738438, 8, "NoraSanc", 90283, 111, true);
+		Cliente c9 = new Cliente("Maria Jose", "Farias", 39, 22397483, 9, "MariJoseFar", 2348439, 134, false);
+		Cliente c10 = new Cliente("Rafael", "Múgica", 40, 908009128, 10, "RafaelMug", 3467221, 96, true);
+
 
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -82,7 +74,6 @@ public class VentanaDeInicio extends JFrame {
 		passwordField.setBounds(91, 263, 146, 26);
 		contentPane.add(passwordField);
 		
-// Cambiar Acceder para que se pueda hacer con todos los usuarios 		
 		
 		JButton btnAcceder = new JButton("Acceder");
 		btnAcceder.addActionListener(new ActionListener() {
@@ -95,18 +86,66 @@ public class VentanaDeInicio extends JFrame {
 					vT.setVisible(true);
 					VentanaDeInicio.this.setVisible(false);
 				}else{
-					if(textoUsuario.equals("GabrielCar")&&passwordTexto.equals("601109")){
-						VentanaAdministracion vA = new VentanaAdministracion(textoUsuario, passwordTexto, VentanaDeInicio.this);
-						vA.setVisible(true);
+					if(textoUsuario.equals("BegoñaIri")&&passwordTexto.equals("73823")){
+						VentanaTienda vT = new VentanaTienda(textoUsuario, passwordTexto, VentanaDeInicio.this);
+						vT.setVisible(true);
 						VentanaDeInicio.this.setVisible(false);
-					}else{	
-						JOptionPane.showMessageDialog(VentanaDeInicio.this, "Nombre de Usuario o Contraseña erroneos.");
+					}else{
+						if(textoUsuario.equals("MaialenJim")&&passwordTexto.equals("111111111")){
+							VentanaTienda vT = new VentanaTienda(textoUsuario, passwordTexto, VentanaDeInicio.this);
+							vT.setVisible(true);
+							VentanaDeInicio.this.setVisible(false);
+						}else{	
+							if(textoUsuario.equals("DavidMag")&&passwordTexto.equals("828391")){
+								VentanaTienda vT = new VentanaTienda(textoUsuario, passwordTexto, VentanaDeInicio.this);
+								vT.setVisible(true);
+								VentanaDeInicio.this.setVisible(false);
+							}else{	
+								if(textoUsuario.equals("PabloDiz")&&passwordTexto.equals("982020")){
+									VentanaTienda vT = new VentanaTienda(textoUsuario, passwordTexto, VentanaDeInicio.this);
+									vT.setVisible(true);
+									VentanaDeInicio.this.setVisible(false);
+								}else{	
+									if(textoUsuario.equals("IñakiSant")&&passwordTexto.equals("949237")){
+										VentanaTienda vT = new VentanaTienda(textoUsuario, passwordTexto, VentanaDeInicio.this);
+										vT.setVisible(true);
+										VentanaDeInicio.this.setVisible(false);
+									}else{
+										if(textoUsuario.equals("CristinaOc")&&passwordTexto.equals("1123")){
+											VentanaTienda vT = new VentanaTienda(textoUsuario, passwordTexto, VentanaDeInicio.this);
+											vT.setVisible(true);
+											VentanaDeInicio.this.setVisible(false);
+										}else{
+											if(textoUsuario.equals("NoraSanc")&&passwordTexto.equals("90283")){
+												VentanaTienda vT = new VentanaTienda(textoUsuario, passwordTexto, VentanaDeInicio.this);
+												vT.setVisible(true);
+												VentanaDeInicio.this.setVisible(false);
+											}else{
+												if(textoUsuario.equals("MariJoseFar")&&passwordTexto.equals("2348439")){
+													VentanaTienda vT = new VentanaTienda(textoUsuario, passwordTexto, VentanaDeInicio.this);
+													vT.setVisible(true);
+													VentanaDeInicio.this.setVisible(false);
+												}else{
+													if(textoUsuario.equals("RafaelMug")&&passwordTexto.equals("3467221")){
+														VentanaTienda vT = new VentanaTienda(textoUsuario, passwordTexto, VentanaDeInicio.this);
+														vT.setVisible(true);
+														VentanaDeInicio.this.setVisible(false);
+													}else{	
+														JOptionPane.showMessageDialog(VentanaDeInicio.this, "Nombre de Usuario o Contraseña erroneos.");
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
 					}
 				}
 				
 			}
 		});
-		btnAcceder.setBounds(224, 334, 102, 29);
+		btnAcceder.setBounds(235, 334, 102, 29);
 		contentPane.add(btnAcceder);
 		
 		lblBienvenido = new JLabel("BIENVENIDO");
@@ -123,18 +162,19 @@ public class VentanaDeInicio extends JFrame {
 				JOptionPane.showMessageDialog(VentanaDeInicio.this, "Mediante esta opción puede realizar un registro de usuario.");
 			}
 		});
-		btnRegistrarse.setBounds(15, 334, 115, 29);
+		btnRegistrarse.setBounds(0, 334, 115, 29);
 		contentPane.add(btnRegistrarse);
 		
-		btnSalir = new JButton("Salir");
+		btnSalir = new JButton("Volver");
 		btnSalir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//mostrar un mensaje en el que puedas elegir opciones
-				JOptionPane.showInputDialog(VentanaDeInicio.this, "¿Desea cerrar la aplicación?", "SÍ");
-				System.exit(0);
+				JOptionPane.showMessageDialog(VentanaDeInicio.this, "Está volviendo atrás");
+				VentanaPrincipal vP = new VentanaPrincipal();
+				vP.setVisible(true);
+				VentanaDeInicio.this.setVisible(false);
 			}
 		});
-		btnSalir.setBounds(145, 334, 69, 29);
+		btnSalir.setBounds(130, 334, 96, 29);
 		contentPane.add(btnSalir);
 		}
 	
