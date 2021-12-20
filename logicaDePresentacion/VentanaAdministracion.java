@@ -25,6 +25,7 @@ public class VentanaAdministracion extends JFrame {
 	private JFrame ventanaAnterior;
 	private JList listMemoria;
 	private JButton btnAcceder;
+	private JTextField textField;
 
 	/**
 	 * Create the frame.
@@ -36,7 +37,6 @@ public class VentanaAdministracion extends JFrame {
 		Mensajeria m2 = new Mensajeria("23/09/2022", false);
 		Mensajeria m3 = new Mensajeria("2/11/2022", false);
 		
-		Empleado ex = new Empleado("Gabriel", "Carro", 48, 259642492, 2, "GabrielCar", 601109, 1);
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 620, 432);
@@ -48,8 +48,8 @@ public class VentanaAdministracion extends JFrame {
 		JButton button = new JButton("Terminar");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				((VentanaDeInicio)ventanaAnterior).limpiarTextField();
-				ventanaAnterior.setVisible(true);
+				VentanaEntrada vE = new VentanaEntrada();
+				vE.setVisible(true);
 				VentanaAdministracion.this.setVisible(false);
 			}
 		});
@@ -108,13 +108,9 @@ public class VentanaAdministracion extends JFrame {
 		lblorden1_2_1_1.setBounds(15, 16, 223, 20);
 		contentPane.add(lblorden1_2_1_1);
 		
-		JLabel nombreAdministrador = new JLabel(ex.getNombreP());
+		JLabel nombreAdministrador = new JLabel(usuario);
 		nombreAdministrador.setBounds(253, 16, 107, 20);
 		contentPane.add(nombreAdministrador);
-		
-		JLabel apellidoAdministrador = new JLabel(ex.getApellidoP());
-		apellidoAdministrador.setBounds(375, 16, 107, 20);
-		contentPane.add(apellidoAdministrador);
 		
 		JButton btnAcceder_1 = new JButton("Validar");
 		btnAcceder_1.addActionListener(new ActionListener() {
@@ -142,7 +138,34 @@ public class VentanaAdministracion extends JFrame {
 		});
 		btnAcceder_1.setBounds(15, 336, 107, 29);
 		contentPane.add(btnAcceder_1);
+		
+		JButton btnProducto = new JButton("Producto");
+		btnProducto.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				VentanaCrearProducto vC = new VentanaCrearProducto();
+				vC.setVisible(true);
+				VentanaAdministracion.this.setVisible(false);
+			}
+		});
+		btnProducto.setBounds(468, 256, 115, 29);
+		contentPane.add(btnProducto);
+		
+		JLabel lblAadirUnNuevo_2 = new JLabel("A\u00F1adir un nuevo producto a la tienda:");
+		lblAadirUnNuevo_2.setBounds(156, 260, 350, 20);
+		contentPane.add(lblAadirUnNuevo_2);
+		
+		textField = new JTextField();
+		textField.setBounds(240, 123, 343, 26);
+		contentPane.add(textField);
+		textField.setColumns(10);
+		
+		JLabel lblAnotacionesDelAdministrador = new JLabel("Anotaciones del administrador:");
+		lblAnotacionesDelAdministrador.setBounds(240, 98, 277, 20);
+		contentPane.add(lblAnotacionesDelAdministrador);
 	}
 
+	public VentanaAdministracion() {
+		// TODO Auto-generated constructor stub
+	}
 }
 
